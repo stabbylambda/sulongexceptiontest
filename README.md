@@ -36,3 +36,8 @@ unsigned int sulong_eh_canCatch(_Unwind_Exception *unwindHeader, std::type_info 
 
 In the case that the C++ code throws a `std::runtime_error`, `ex->exceptionType` is an `St13runtime_error` and `et` becomes null.The exception never gets marshalled over into the Java code that I’ve got, so I’m unable to catch the error.
 I would have expected it to get wrapped in a RuntimeException so that I could handle it.
+
+## building
+I've checked in the bitcode file I compiled on macOS. To get a clean build, just run
+
+`mvn clean package && java -jar target/sulong-runtime-exception-1.0-SNAPSHOT.jar`
